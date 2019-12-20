@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="testApp">
+<head>
+    <title>AngularJS</title>
+</head>
+<body>
+Loaded data here
+<!--    My view contented to be loaded dynamically here for ng view-->
+<div ng-view>
+    load some data here
+</div>
+<div ng-controller="controllerOne">
+    <span>
+            Dev:{{devName}}
+            <br>
+            <input type="text">
+            <br>
+            Years Of Experience:{{yearsOfExp}}
+        </span>
+    <div>
+        <h1>Templated contents</h1>
+        {{contacts}}
+    </div>
+    <div>
+        <h2>contacts</h2>
+        <span ng-bind="devName"></span>
+        search <input type="text" ng-model="search_val" value="sam"> {{search_val}}
+        <ol>
+            <li ng-repeat="contact in contacts | filter:search_val  | orderBy: 'name'">
+                {{contact.name +" - "+contact.phone}}
+            </li>
+        </ol>
+    </div>
+</div>
+</body>
+<script src="assets/js/angular.js"></script>
+<script src="assets/js/angular-routes.js"></script>
+<script src="assets/js/main.js"></script>
+</html>
